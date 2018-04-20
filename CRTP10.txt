@@ -7,3 +7,8 @@ Compte-rendu TP10
 [c] Oui! cf Digicode_V1/automate.c
 
 [d] cf Fonction_transition.pdf
+
+[e] printf("clic\n"); 
+pour afficher un message lorsque la porte s'ouvre (cf. Digicode_V3/automate.c)
+
+[f] Oui!
