@@ -66,11 +66,12 @@ int etat_courant, etat_suivant, entree ;
 	while (entree != -1) {
 		entree = lire_entree() ;
 		etat_suivant=transition[etat_courant][entree] ;
-		/* test */
-		printf("courant:%d - entree:%d -> suivant:%d\n", etat_courant, entree, etat_suivant) ;
-		/* fin test */
+		
+		printf("courant:%d - entree:%d -> suivant:%d\n", etat_courant, entree, etat_suivant) ; /* pour tester */
+		
 		etat_courant = etat_suivant ;
-
+		
+		/* question e */
 		if (est_final(etat_courant)) {
 			printf("clic\n");
 			exit(0);
