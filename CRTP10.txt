@@ -1,0 +1,9 @@
+Compte-rendu TP10
+
+[a] Code de la porte : 1234
+
+[b] Pour arrêter la simulation, il faut entrer -
+
+[c] Oui! cf Digicode_V1/automate.c
+
+[d] cf Fonction_transition.pdf
