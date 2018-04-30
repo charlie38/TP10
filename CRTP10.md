@@ -68,7 +68,7 @@ int etat_courant, etat_suivant, entree ;
 		}
 	}
 }
-```c
+```
 
 [d] cf Fonction_transition.pdf
 
@@ -114,6 +114,6 @@ int etat_courant, etat_suivant, entree ;
 		}
 	}
 }
-```c
+```
 
 [f] Oui!
