@@ -15,7 +15,6 @@
 #define Q4 4
 
 char essai[]="/*" /* un essai : " */;
-typedef int etat ;
 
 etat etat_initial() {
 	return Q0 ;
