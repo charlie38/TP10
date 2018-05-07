@@ -117,3 +117,45 @@ int etat_courant, etat_suivant, entree ;
 ```
 
 [f] Oui!
+
+[g] 
+
+[h] 
+
+[i] Format choisi : un chiffre par ligne!
+
+```c
+int init_automate(char *nom_fich) {
+	FILE * fich = fopen(nom_fich,"r") ;
+	if (fich==NULL) {
+		return 1;
+	}else{
+		/* initialise l'automate par défaut */
+		init_par_defaut();
+
+		/* lire le code */
+		int e_1,e_2,e_3,e_4=0;
+		fscanf(fich,"%d\n",&e_1);
+		fscanf(fich,"%d\n",&e_2);
+		fscanf(fich,"%d\n",&e_3);
+		fscanf(fich,"%d\n",&e_4);
+
+		/* printf("%d;%d;%d;%d\n",e_1,e_2,e_3,e_4); */
+		
+		transition[Q0][e_1]=e_1;
+		transition[Q1][e_1]=e_1;
+		transition[Q2][e_1]=e_1;
+		transition[Q3][e_1]=e_1;
+		transition[Q4][e_1]=e_1;
+
+		transition[Q1][e_2]=e_2 ;
+		transition[Q2][e_3]=e_3 ;
+		transition[Q3][e_4]=e_4 ;
+					
+	}
+	fclose(fich);
+	return 0;
+}
+
+```
+
