@@ -70,7 +70,12 @@ int etat_courant, etat_suivant, entree ;
 }
 ```
 
-[d] cf Fonction_transition.pdf
+[d] Fonction transition
+{{ Q0, Q1, Q0, Q0, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, Q1, Q2, Q0, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, Q1, Q0, Q3, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, Q1, Q0, Q0, Q4, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, Q1, Q0, Q0, Q0, Q0, Q0, Q0, Q0, Q0 }}
 
 [e] printf("clic\n"); 
 pour afficher un message lorsque la porte s'ouvre 
@@ -118,9 +123,17 @@ int etat_courant, etat_suivant, entree ;
 
 [f] Oui!
 
-[g] 
+[g]  Inconvénient pour les digicode V1 et V2, car il faut modifier tous les switch.
 
-[h] 
+[h] Fonction transition
+{{ Q0, **Q1**, Q0, Q0, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, **Q1**, **Q2**, Q0, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, **Q1**, Q0, **Q3**, Q0, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, **Q1**, Q0, Q0, **Q4**, Q0, Q0, Q0, Q0, Q0 },
+ { Q0, **Q1**, Q0, Q0, Q0, Q0, Q0, Q0, Q0, Q0 }}
+La diagonale Q1, Q2, Q3 et Q4 correspond à la séquence du code.
+La colonne Q1 : à chaque état, l'entrée 1 renvoie à l'état 1.
+
 
 [i] Format choisi : un chiffre par ligne!
 
