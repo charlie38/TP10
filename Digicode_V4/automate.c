@@ -14,6 +14,7 @@
 #define Q3 3
 #define Q4 4
 
+int transition[NB_ETATS][NB_ENTREES] ;
 char essai[]="/*" /* un essai : " */;
 typedef int etat ;
 
@@ -41,20 +42,43 @@ char c ;
 }
 
 void init_par_defaut() { /* initialise toutes les cases du tableau transition à 0 */
-	int transition[NB_ETATS][NB_ENTREES] ;
 	for (int i=0 ; i<NB_ETATS ; i++) {
-		for (int j=0 ; i<NB_ENTREES ; j++) {
+		for (int j=0 ; j<NB_ENTREES ; j++) {
 			transition[i][j]=0;
 		}	
 	}
+}
 
 int init_automate(char *nom_fich) {
 	FILE * fich = fopen(nom_fich,"r") ;
-	if (file==NULL) {
-		return 1
+	if (fich==NULL) {
+		return 1;
 	}else{
 		/* initialise l'automate par défaut */
+		init_par_defaut();
+
+		/* lire le code */
+		int e_1,e_2,e_3,e_4=0;
+		fscanf(fich,"%d\n",&e_1);
+		fscanf(fich,"%d\n",&e_2);
+		fscanf(fich,"%d\n",&e_3);
+		fscanf(fich,"%d\n",&e_4);
+
+		/* printf("%d;%d;%d;%d\n",e_1,e_2,e_3,e_4); */
+		
+		transition[Q0][e_1]=e_1;
+		transition[Q1][e_1]=e_1;
+		transition[Q2][e_1]=e_1;
+		transition[Q3][e_1]=e_1;
+		transition[Q4][e_1]=e_1;
+
+		transition[Q1][e_2]=e_2 ;
+		transition[Q2][e_3]=e_3 ;
+		transition[Q3][e_4]=e_4 ;
+					
 	}
+	fclose(fich);
+	return 0;
 }
 
 void simule_automate() {
@@ -62,29 +86,11 @@ int etat_courant, etat_suivant, entree ;
 	entree = 0 ;
 	etat_courant = etat_initial() ;
 
-	/*-- question d --*/
-	int transition[NB_ETATS][NB_ENTREES] ;
-	for (int i=0 ; i<NB_ETATS ; i++){
-		for (int j=0 ; j<NB_ENTREES ; j++) {
-			if (j==1) {
-				transition[i][j]=1 ; /* on remplit la colonne 1 */
-			}else{
-				transition[i][j]=0 ; /* initialise le reste à zéro */
-			}
-		}
-	}	
-	/* on complète le tableau */
-	transition[1][2]=2 ;
-	transition[2][3]=3 ;
-	transition[3][4]=4 ;
-	/*-- question d --*/
-
-
 	while (entree != -1) {
 		entree = lire_entree() ;
 		etat_suivant=transition[etat_courant][entree] ;
 		
-		printf("courant:%d - entree:%d -> suivant:%d\n", etat_courant, entree, etat_suivant) ; /* pour tester */
+		/* printf("courant:%d - entree:%d -> suivant:%d\n", etat_courant, entree, etat_suivant) ; */
 		
 		etat_courant = etat_suivant ;
 		
